@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Create or edit patient";
+}
+
+@model Patients
+
+<div class="text-center">
+    <h1 class="display-4">Create or edit a patient</h1>
+</div>
+
+<form>
+    <label class="center">Id</label>
+    <input class="center" placeholder="" asp-for="Id"/>
+
+    <label class="center">Name</label>
+    <input class="center" placeholder="" asp-for="Name" />
+
+    <label class="center">Surname</label>
+    <input class="center" placeholder="" asp-for="Surname" />
+
+    <label class="center">Sexe</label>
+    <input class="center" placeholder="" asp-for="Sexe" />
+
+    <label class="center">Height</label>
+    <input class="center" placeholder="" asp-for="Height" />
+
+    <label class="center">Weight</label>
+    <input class="center" placeholder="" asp-for="Weight" />
+</form>
