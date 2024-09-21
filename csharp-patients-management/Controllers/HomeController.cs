@@ -37,6 +37,16 @@ namespace csharp_patients_management.Controllers
             return View();
         }
 
+        public IActionResult DeletePatient(int id)
+        {
+            var patient = _context.Patients.SingleOrDefault(x => x.Id == id);
+
+            _context.Patients.Remove(patient);
+            _context.SaveChanges();
+
+            return Redirect("Index");
+        }
+
         public IActionResult Privacy()
         {
             return View();

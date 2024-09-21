@@ -17,6 +17,7 @@
         <th>Sexe</th>
         <th>Height</th>
         <th>Weight</th>
+        <th>Action</th>
     </thead>
     <tbody>
         @foreach(var patient in Model)
@@ -27,6 +28,10 @@
                 <td>@patient.Sexe</td>
                 <td>@patient.Height</td>
                 <td>@patient.Weight</td>
+                <td>
+                    <a asp-controller="Home" asp-action="CreateOrEditPatient" asp-route-id="@patient.Id">Edit</a>
+                    <a asp-controller="Home" asp-action="DeletePatient" asp-route-id="@patient.Id">Delete</a>
+                </td>
             </tr>
         }
         
