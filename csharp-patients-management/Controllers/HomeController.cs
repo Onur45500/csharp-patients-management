@@ -18,12 +18,16 @@ namespace csharp_patients_management.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var allPatients = _context.Patients.ToList();
+
+            return View(allPatients);
         }
 
         public IActionResult CreateOrEditPatientForm(Patient patient)
         {
             _context.Patients.Add(patient);
+
+            _context.SaveChanges();
             
             return RedirectToAction("Index");
         }
