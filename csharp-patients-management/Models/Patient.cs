@@ -1,6 +1,6 @@
 ﻿namespace csharp_patients_management.Models
 {
-    public class Patients
+    public class Patient
     {
         public int Id { get; set; }
 

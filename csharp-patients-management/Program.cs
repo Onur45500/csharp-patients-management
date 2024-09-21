@@ -1,3 +1,6 @@
+using csharp_patients_management.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace csharp_patients_management
 {
     public class Program
@@ -8,6 +11,9 @@ namespace csharp_patients_management
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<PatientsDbContext>(options =>
+                options.UseInMemoryDatabase("PatientsDb")
+            );
 
             var app = builder.Build();
 
