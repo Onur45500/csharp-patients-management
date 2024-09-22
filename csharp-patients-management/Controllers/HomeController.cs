@@ -42,7 +42,7 @@ namespace csharp_patients_management.Controllers
             return RedirectToAction("Index");
         }
         
-        public IActionResult CreateOrEditPatient(int id)
+        public IActionResult CreateOrEditPatient(int? id)
         {
             var patientById = _context.Patients.SingleOrDefault(x => x.Id == id);
 
@@ -54,14 +54,18 @@ namespace csharp_patients_management.Controllers
             return View();
         }
 
-        public IActionResult DeletePatient(int id)
+        public IActionResult DeletePatient(int? id)
         {
             var patientById = _context.Patients.SingleOrDefault(x => x.Id == id);
 
-            _context.Patients.Remove(patientById);
-            _context.SaveChanges();
+            if (id != null)
+            {
+                _context.Patients.Remove(patientById);
 
-            return Redirect("Index");
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
         }
 
         public IActionResult Privacy()

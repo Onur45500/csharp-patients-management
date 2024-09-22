@@ -10,7 +10,7 @@
 
 @model List<Patient>
 
-<table class="table">
+@* <table class="table">
     <thead>
         <th>Name</th>
         <th>Surname</th>
@@ -36,7 +36,7 @@
         }
         
     </tbody>
-</table>
+</table> *@
 
 <div class="row">
     @foreach(var patient in Model)
@@ -48,8 +48,8 @@
                 <h6 class="card-title">Sexe: @patient.Sexe</h6>
                 <h6 class="card-title">Height: @patient.Height</h6>
                 <h6 class="card-title">Weight: @patient.Weight</h6>
-                <p><a asp-controller="Home" asp-action="CreateOrEditPatient" asp-route-id="@patient.Id">Edit</a>
-                <a asp-controller="Home" asp-action="DeletePatient" asp-route-id="@patient.Id">Delete</a></p>
+                <p>@* <a asp-action="CreateOrEditPatient" asp-route-id="@patient.Id">Edit</a> *@
+                <a asp-action="DeletePatient" asp-route-id="@patient.Id">Delete</a></p>
             </div>
         </div>
     </div>
