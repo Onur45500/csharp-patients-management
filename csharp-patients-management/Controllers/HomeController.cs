@@ -25,23 +25,40 @@ namespace csharp_patients_management.Controllers
 
         public IActionResult CreateOrEditPatientForm(Patient patient)
         {
-            _context.Patients.Add(patient);
+            
+            if(patient.Id == null)
+            {
+                _context.Patients.Add(patient);
 
-            _context.SaveChanges();
+                _context.SaveChanges();
+            }
+            else
+            {
+                _context.Patients.Update(patient);
+
+                _context.SaveChanges();
+            }
             
             return RedirectToAction("Index");
         }
-
-        public IActionResult CreateOrEditPatient()
+        
+        public IActionResult CreateOrEditPatient(int id)
         {
+            var patientById = _context.Patients.SingleOrDefault(x => x.Id == id);
+
+            if (id != null)
+            {
+                return View(patientById);
+            }
+
             return View();
         }
 
         public IActionResult DeletePatient(int id)
         {
-            var patient = _context.Patients.SingleOrDefault(x => x.Id == id);
+            var patientById = _context.Patients.SingleOrDefault(x => x.Id == id);
 
-            _context.Patients.Remove(patient);
+            _context.Patients.Remove(patientById);
             _context.SaveChanges();
 
             return Redirect("Index");
