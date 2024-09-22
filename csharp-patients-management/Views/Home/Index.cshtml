@@ -39,13 +39,19 @@
 </table>
 
 <div class="row">
-
+    @foreach(var patient in Model)
+        {
     <div class="col-sm-3 m-2">
         <div class="card">
             <div class="card-body">
-                <img class="card-img" height="50" width="50" />
-                <h5 class="card-title">Onur AKMESE</h5>
+                <h5 class="card-title">@patient.Name @patient.Surname</h5>
+                <h6 class="card-title">Sexe: @patient.Sexe</h6>
+                <h6 class="card-title">Height: @patient.Height</h6>
+                <h6 class="card-title">Weight: @patient.Weight</h6>
+                <p><a asp-controller="Home" asp-action="CreateOrEditPatient" asp-route-id="@patient.Id">Edit</a>
+                <a asp-controller="Home" asp-action="DeletePatient" asp-route-id="@patient.Id">Delete</a></p>
             </div>
         </div>
     </div>
+        }
 </div>
