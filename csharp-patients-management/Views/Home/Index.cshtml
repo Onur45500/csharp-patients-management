@@ -38,19 +38,18 @@
     </tbody>
 </table> *@
 
-<div class="row">
+<div class="card-container">
     @foreach(var patient in Model)
         {
-    <div class="col-sm-3 m-2">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">@patient.Name @patient.Surname</h5>
-                <h6 class="card-title">Sexe: @patient.Sexe</h6>
-                <h6 class="card-title">Height: @patient.Height</h6>
-                <h6 class="card-title">Weight: @patient.Weight</h6>
-                <p>@* <a asp-action="CreateOrEditPatient" asp-route-id="@patient.Id">Edit</a> *@
-                <a asp-action="DeletePatient" asp-route-id="@patient.Id">Delete</a></p>
-            </div>
+    <div class="card">
+        <img src="path/to/image1.jpg" alt="Card 1 Image">
+        <div class="card-content">
+            <h3>@patient.Name @patient.Surname</h3>
+            <p>Sexe: @patient.Sexe Height: @patient.Height Weight: @patient.Weight</p>
+            <p>
+                <a asp-action="CreateOrEditPatient" asp-route-id="@patient.Id">Edit</a>
+                <a asp-action="DeletePatient" asp-route-id="@patient.Id">Delete</a>
+            </p>
         </div>
     </div>
         }
